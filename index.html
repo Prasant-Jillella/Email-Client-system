@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style/Mystyle.css">
+<script>
+   function validate()
+   {
+        i = document.forms["reg"]["to"].value;
+        e = document.forms["reg"]["sub"].value;
+        m = document.forms["reg"]["message"].value;
+        if(i == '' || m == ''|| e=='')
+        {
+          alert("no field should be empty");
+          return false;
+        }
+        if(!(/^[a-z]+[_.a-z0-9]*[@][a-z]+[.][a-z]{2,3}/).test(i))
+    	{
+     		alert("Invalid email id");
+     		return false;
+    	}
+       else
+        return true;
+   }
+  </script>
+</head>
+<body background="images/brown.png">
+<div class="emin">
+<form action="server_script/email1.jsp" name="reg" onsubmit="return validate()">
+	<label class="legend">Send Message through mail</label>
+<pre><label>From :prasantajillella@gmail.com</label></pre>
+<pre><label>To     :</label><input type="text" name="to" height="4px" size="20px"></pre>
+<pre><label>Subject:</label><input type="text" name="sub" height="4px" size="20px"></pre>
+	<pre><label>Message    :</label><br><textarea name="message" rows="10" ></textarea></pre>
+	<pre>  	<label>Attach file:</label><input type="file" name="file"></pre>
+	<pre><input type="submit" value="submit">		<input type="reset" value="clear"></pre>
+</form>
+</div>
+</body>
+</html>
